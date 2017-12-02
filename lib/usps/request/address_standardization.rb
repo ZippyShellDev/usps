@@ -36,6 +36,10 @@ module USPS::Request
 
             builder.tag!('Zip5', addy.zip5)
             builder.tag!('Zip4', addy.zip4)
+
+            builder.tag!('DeliveryPoint', addy.delivery_point)
+            builder.tag!('CarrierRoute', addy.carrier_route)
+            builder.tag!('Business', addy.business)
           end
         end
       end

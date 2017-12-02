@@ -21,17 +21,17 @@ module USPS::Response
       @addresses[address]
     end
     alias :[] :get
-    
+
     def addresses
       @addresses
     end
-    
+
     def to_h
       hash = {}
       @addresses.each_pair do |key, value|
         hash[key.to_h] = value.to_h
       end
-      
+
       hash
     end
 
@@ -45,6 +45,9 @@ module USPS::Response
         :state => node.search('State').text,
         :zip5 => node.search('Zip5').text,
         :zip4 => node.search('Zip4').text,
+        :delivery_point => node.search('DeliveryPoint').text,
+        :carrier_route => node.search('CarrierRoute').text,
+        :business => node.search('Business').text,
         :return_text => node.search('ReturnText').text,
       )
     end
