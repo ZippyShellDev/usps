@@ -25,7 +25,6 @@ module USPS::Request
       super do |builder|
         @addresses.each_with_index do |addy, i|
           builder.tag!('Address', :ID => i) do
-            builder.tag!('IncludeOptionalElements', 'true')
             builder.tag!('FirmName', addy.firm)
 
             # Address fields are swapped in the USPS API
